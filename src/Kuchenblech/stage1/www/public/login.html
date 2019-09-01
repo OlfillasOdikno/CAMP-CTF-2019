@@ -1,0 +1,70 @@
+<html>
+
+<head>
+    <title>Hacker Chat - Login</title>
+    <link rel="stylesheet" href="/static/css/login.css">
+    <link rel="stylesheet" href="/static/css/crt.css">
+    <script>
+    let display_error= e=>{
+        div = document.getElementById('error_message')
+        div.innerHTML=""
+        div.appendChild(document.createTextNode(e))
+        setTimeout(()=>{
+            div.innerHTML=""
+        },3000)
+    }
+
+    var handle_login =()=>{
+        let payload={
+            username: document.getElementById('username').value,
+            password: document.getElementById('password').value
+        }
+        fetch("/", {
+            method:'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(payload)
+        }).then(r=>{
+            return r.json()
+        }).then(r=>{
+            if(r['status']==0){
+                display_error(r['msg'])
+            }else{
+                document.cookie='p=KCclJTpeIn59fXt6ejFVd3V0dCswKShMbm1rKSJGaGckIyJ5Pz1PXyk6eFtZb3RzbDJTb2guT2UrdmhnOV9HJDUiIV9eV0A='
+                document.location='/'
+            }
+        }).catch(e=> {
+            display_error('Bad Request')
+        })
+    }
+    </script>
+</head>
+
+<body>
+    <div class="crt screen">
+        <div class="scanline"></div>
+        <div class="outer">
+        <div class="title"><a>Hacker</a> Chat</div>
+            <div class="frame">
+                <div class="login">Login</div>
+                <div class="container">
+
+                    <div class="up">Username</div>
+                    <input type="text" id="username">
+                    
+                    <div class="up">Password</div>
+                    <input type="password" id="password">
+                    <div id="error_message"></div>
+                    <div class="btn" onclick="handle_login()">
+                       <div>Login</div>
+                    </div>
+                   
+                    <div class="link"><div id="left">Need an account?</div><div id="right" onclick="document.cookie='p=KCcmJTpeIiE2fTRYenl4Ly5SdHNyLygnS21ra2pofkRmZWRieD5fXzo6W3FJWDU0VTIxUlJRZmUrTEtLSklHXSMhRFl8QWloeTw8dlY5N01xNTRJSGxqRWloSEFkYz50JjtxI1xKWkg6WHkxVUIuUixQcSlNb0pKN2tHaURE;path=/';document.location='/'">Register</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

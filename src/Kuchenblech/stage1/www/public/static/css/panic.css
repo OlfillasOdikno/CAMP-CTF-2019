@@ -1,0 +1,55 @@
+body{
+	background-color: #000;
+	color: #fff;
+}
+video{
+	position: fixed;
+	top:0;
+	display: none;
+	height: 100%;
+	width: 100%;
+}
+.v{
+	display: block;
+}
+
+div{
+	position:absolute;
+	z-index:1337;
+}
+
+span{
+  animation: 1s blink step-end infinite;
+  font-style: bold;
+  font-size: 18px;
+}
+
+@keyframes "blink" {
+  from,
+  to {
+    color: transparent;
+  }
+  50% {
+    color: white;
+  }
+}
+
+@keyframes "blink" {
+  from,
+  to {
+    color: transparent;
+  }
+  50% {
+    color: white;
+  }
+}
+
+@-webkit-keyframes blink {
+  from,
+  to {
+    color: transparent;
+  }
+  50% {
+    color: white;
+  }
+}

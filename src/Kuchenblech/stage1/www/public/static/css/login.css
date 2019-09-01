@@ -1,0 +1,162 @@
+@font-face {
+	font-family: "Roboto";
+	src: url("/static/fonts/roboto/Roboto-Regular.ttf");
+}
+
+@font-face {
+	font-family: "PixelOperator";
+	src: url("/static/fonts/PixelOperator/PixelOperator-Bold.ttf");
+}
+
+:root { 
+	--front-color: #AA483F; 
+	--front-color1: #ececec; 
+	--front-color2: #53c43d;
+	--front-color3: #dee1c1;
+
+	--back-color: #08090a; 
+	--back-color1: #3d444c;
+	--back-color2: #1E2426;
+	--back-color3: #4eab3c;
+}
+
+body {
+	font-size:16px;
+
+
+	background-color: var(--back-color);
+
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+.outer{
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	margin: 0;
+}
+
+.title{
+	z-index: 3;
+
+	font-family: PixelOperator, sans-serif;
+	color: lime;
+
+	font-size: 120px;
+	text-align: center;
+
+}
+.title>a{
+	color:white;
+	background-color: black;
+	padding:5px 5px 5px 5px;
+}
+
+.frame{
+    margin:auto;
+    margin-top: 120px;
+
+    width: 300px;
+    height: 350px;
+
+	border-radius: 8px;
+
+	background-color: var(--back-color1);
+	display:flex;
+	flex-flow: column nowrap;
+
+	font-family: Roboto, sans-serif;
+
+	color: var(--front-color);
+
+}
+
+.login{
+	margin-top: 20px;
+
+	font-size:50px;
+	text-align: center;
+}
+
+input{
+	margin-top: 4px;
+	margin-bottom: 15px;
+
+	padding-left: 10px;
+	padding-right: 10px;
+
+	height: 35px;
+	width:100%;
+
+	border:0px;
+	border-radius: 4px;
+	background-color: var(--back-color2);
+
+	color: var(--front-color3);
+
+    outline-color: transparent;
+    outline-style: none;
+}
+
+.container{
+	bottom: 0;
+	margin-top: auto;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+
+	margin-bottom: 10px;
+	width: 90%;
+}
+.btn{
+	margin-top: 10px;
+	margin-bottom: 10px;
+
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+
+
+	border:0px;
+	border-radius: 4px;
+	background-color: var(--front-color2);
+
+	color: var(--front-color1);
+}
+
+.btn>div{
+	font-size:25px;
+}
+
+.btn:hover{
+	background-color: var(--back-color3);
+}
+
+#error_message{
+	height: 20px;
+	color: var(--front-color);
+}
+
+.link{
+	width: 100%;
+}
+
+.link>#right{
+	float: right;
+	color:var(--front-color);
+	text-decoration: underline;
+}
+
+.link>#left{
+	float: left;
+	color:var(--front-color2);
+}

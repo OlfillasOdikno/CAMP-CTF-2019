@@ -1,0 +1,69 @@
+<html>
+
+<head>
+    <title>Hacker Chat - Register</title>
+    <link rel="stylesheet" href="/static/css/register.css">
+    <link rel="stylesheet" href="/static/css/crt.css">
+    <script>
+    let display_error= e=>{
+        div = document.getElementById('error_message')
+        div.innerHTML=""
+        div.appendChild(document.createTextNode(e))
+        setTimeout(()=>{
+            div.innerHTML=""
+        },3000)
+    }
+
+    var handle_register =()=>{
+        let payload={
+            username: document.getElementById('username').value,
+            password: document.getElementById('password').value
+        }
+        fetch("/", {
+            method:'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(payload)
+        }).then(r=>{
+            return r.json()
+        }).then(r=>{
+            debugger;
+            if(r['status']==0){
+                display_error(r['msg'])
+            }else{
+                document.cookie='p=KCcmJDpeIiF9fDRYenl3NS5SdHNycSgnS21saighRWdmZSJ5P2E8PE06OTg3WTVXVVRTUi9RbGVkY2JLJ0lIR0ZufjJBe1xoPT07dTp0VHI2SzRuIWxrWFdoQmZlZGNicyRNcD5%2BW0hZV1ZEVWZlUVFyKk5M'
+                document.location='/'
+            }
+        }).catch(e=> {
+            display_error('Bad Request')
+        })
+    }
+    </script>
+</head>
+
+<body>
+    <div class="crt screen">
+        <div class="scanline"></div>
+        <div class="outer">
+            <div class="title"><a>Hacker</a> Chat</div>
+            <div class="frame">
+                <div class="login">Register</div>
+                <div class="container">
+
+                    <div class="up">Username</div>
+                    <input type="text" id="username">
+                    
+                    <div class="up">Password</div>
+                    <input type="password" id="password">
+                    <div id="error_message"></div>
+                    <div class="btn" onclick="handle_register()">
+                       <div>Register</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

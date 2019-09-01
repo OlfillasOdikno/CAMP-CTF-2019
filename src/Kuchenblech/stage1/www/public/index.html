@@ -1,0 +1,31 @@
+<html>
+<head>
+	<script src="/static/js/chat.js"></script>
+	<title>Hacker Chat</title>
+	<link rel="stylesheet" href="/static/css/chat.css">
+	<link rel="stylesheet" href="/static/css/crt.css">
+</head>
+<body>
+	<div class="screen crt">
+		<div class="scanline"></div>
+		<div class="frame">
+			<div class="chat_container">
+				<div class="watermark">Hacker Chat</div>
+				<div id="chat" class="chat"></div>
+				<div class="send">
+					<input type="text" placeholder="Your message.." onkeydown="handle_input(event)"/>
+				</div>
+			</div>
+			<div class="users_container">
+				<div id="participants" class="participants" >
+				
+				</div>
+				<div class="self">
+					<div id="userinfo" class="userinfo"></div>
+					<div class="settings"></div>
+				</div>	
+			</div>
+		</div>
+	</div>
+</body>
+</html>

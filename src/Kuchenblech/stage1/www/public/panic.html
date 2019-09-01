@@ -1,0 +1,19 @@
+<html>
+<head>
+	<title>PHP-Bindshell</title>
+	<link rel="stylesheet" href="/static/css/panic.css">
+	<script type="text/javascript">
+		let p=()=>{
+			document.getElementById('p').classList.add('v');document.getElementById('p').play()
+		}
+		var hack=()=>{
+			document.onclick=p
+			document.onkeydown=p
+		}
+	</script>
+</head>
+<body onload="hack()" oncontextmenu="return false;">
+	<div>[root@challange1 ~]$ <span class="blinking-cursor">|</span></div>
+	<video id="p" src="/static/vids/rick.mp4" loop></video>
+</body>
+</html>

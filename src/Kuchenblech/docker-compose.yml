@@ -1,0 +1,36 @@
+version: "3.7"
+services:
+  stage1_db:
+    container_name: stage1_db
+    build: stage1_db
+  stage1:
+    links:
+      - "stage1_db:db"
+    container_name: stage1
+    build: stage1
+    ports:
+      - target: 80
+        published: 80
+        protocol: tcp
+        mode: host
+    stdin_open: true
+    tty: true
+    volumes:
+      - type: bind
+        source: ./stage1_chat_server/profile
+        target: /srv/www/public/static/img/profile
+      - type: bind
+        source: ./stage3/public/31_07_2019.pcap
+        target: /tmp/31_07_2019.pcap
+        read_only: true
+    restart: always
+
+  stage1_chat_server:
+    container_name: stage1_chat_server
+    build: stage1_chat_server
+    ports:
+      - target: 1337
+        published: 1337
+        protocol: tcp
+        mode: host
+    restart: always
